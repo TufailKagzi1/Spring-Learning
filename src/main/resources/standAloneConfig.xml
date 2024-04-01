@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+		https://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <util:list list-class="java.util.ArrayList" id="listOfSubject">
+        <value>Java</value>
+        <value>Spring</value>
+        <value>Spring Boot</value>
+        <value>PHP</value>
+    </util:list>
+    <util:map map-class="java.util.HashMap" id="MapOfSubject">
+        <entry key="1" value="Java"/>
+        <entry key="2" value="Spring"/>
+        <entry key="3" value="Spring Boot"/>
+        <entry key="4" value="PHP"/>
+    </util:map>
+    <util:properties id="SubjectProp">
+        <prop key="Java">5000</prop>
+        <prop key="Spring">7000</prop>
+        <prop key="Spring Boot">7500</prop>
+        <prop key="PHP">400</prop>
+    </util:properties>
+
+    <bean class="com.example.StandAlone.test" name="listHail">
+        <property name="subject">
+            <ref bean="listOfSubject"/>
+        </property>
+        <property name="subjectWithId">
+            <ref bean="MapOfSubject"/>
+        </property>
+        <property name="properties">
+            <ref bean="SubjectProp"/>
+        </property>
+    </bean>
+
+</beans>
+
+
+_
